@@ -27,22 +27,6 @@ public class DataSourceCfg {
 	@Autowired
 	Environment env;
 
-	// private final String URL = "url";
-	// private final String USER = "dbuser";
-	// private final String DRIVER = "driver";
-	// private final String PASSWORD = "dbpassword";
-    // private final String INITDB = "init-db";
-
-	// @Bean
-	// DataSource dataSource() {
-	// 	DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	// 	dataSource.setUrl(env.getProperty(URL));
-	// 	dataSource.setUsername(env.getProperty(USER));
-	// 	dataSource.setPassword(env.getProperty(PASSWORD));
-	// 	dataSource.setDriverClassName(env.getProperty(DRIVER));
-	// 	return dataSource;
-	// }
-
 	// @Bean
     // public JdbcTemplate jdbcTemplate(DataSource dataSource) {
     //     return new JdbcTemplate(dataSource);

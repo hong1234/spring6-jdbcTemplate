@@ -22,7 +22,10 @@ import java.time.LocalDateTime;
 
 import com.hong.model.Person;
 
+import lombok.AllArgsConstructor;
+
 @Component
+@AllArgsConstructor
 public class JdbcTemplateDAO implements PersonDAO {
 
 	private final String SQL_GET_ALL = "select * from people";
@@ -33,9 +36,9 @@ public class JdbcTemplateDAO implements PersonDAO {
 
 	private final NamedParameterJdbcTemplate jdbcTemplate;
 
-	public JdbcTemplateDAO(NamedParameterJdbcTemplate jdbcTemplate) {
-    	this.jdbcTemplate = jdbcTemplate;
-	}
+	// public JdbcTemplateDAO(NamedParameterJdbcTemplate jdbcTemplate) {
+    // 	this.jdbcTemplate = jdbcTemplate;
+	// }
 
 	public List<Person> getAllPersons() {
 		return jdbcTemplate.query(SQL_GET_ALL, new PersonMapper());

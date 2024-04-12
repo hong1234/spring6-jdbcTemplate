@@ -12,17 +12,20 @@ import com.hong.model.Gender;
 import com.hong.spring.dao.PersonDAO;
 import com.hong.spring.dao.PersonDAO2;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 // @Transactional
 public class PersonManager {
 
-	private PersonDAO  personDao;
-	private PersonDAO2 jdbcDao;
+	private final PersonDAO  personDao;
+	private final PersonDAO2 jdbcDao;
 
-	public PersonManager(PersonDAO personDao, PersonDAO2 jdbcDao) {
-		this.personDao = personDao;
-		this.jdbcDao = jdbcDao;
-	}
+	// public PersonManager(PersonDAO personDao, PersonDAO2 jdbcDao) {
+	// 	this.personDao = personDao;
+	// 	this.jdbcDao = jdbcDao;
+	// }
 
 	// @Transactional
 	public void testAdd() {

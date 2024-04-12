@@ -22,7 +22,10 @@ import java.time.LocalDateTime;
 
 import com.hong.model.Person;
 
+import lombok.AllArgsConstructor;
+
 @Component
+@AllArgsConstructor
 public class JdbcDAO implements PersonDAO2 {
 
 	private final String SQL_FIND_PERSON = "select * from people where id = ?";
@@ -30,9 +33,9 @@ public class JdbcDAO implements PersonDAO2 {
 
 	private final DataSource dataSource;
 
-	public JdbcDAO(DataSource dataSource) {
-    	this.dataSource = dataSource;
-	}
+	// public JdbcDAO(DataSource dataSource) {
+    // 	this.dataSource = dataSource;
+	// }
 
     public Person findPersonById(Integer id) {
 
