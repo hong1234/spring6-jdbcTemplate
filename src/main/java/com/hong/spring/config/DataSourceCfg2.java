@@ -25,16 +25,12 @@ public class DataSourceCfg2 {
 
     @Value("${driver}")
     private String driverClassName;
-
     @Value("${url}")
     private String url;
-
     @Value("${dbuser}")
     private String username;
-
     @Value("${dbpassword}")
     private String password;
-
     @Value("${init-db:false}")
     private String initDatabase;
 
@@ -46,7 +42,6 @@ public class DataSourceCfg2 {
     // @Bean(destroyMethod = "close")
     @Bean
     public DataSource dataSource() {
-        // BasicDataSource dataSource = new BasicDataSource();
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(url);

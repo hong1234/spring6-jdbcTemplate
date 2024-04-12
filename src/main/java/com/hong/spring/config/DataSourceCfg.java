@@ -27,16 +27,6 @@ public class DataSourceCfg {
 	@Autowired
 	Environment env;
 
-	// @Bean
-    // public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-    //     return new JdbcTemplate(dataSource);
-    // }
-
-	@Bean
-    public NamedParameterJdbcTemplate jdbcTemplate(DataSource dataSource) {
-        return new NamedParameterJdbcTemplate(dataSource);
-    }
-
 	@Bean
 	DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -46,6 +36,11 @@ public class DataSourceCfg {
 		dataSource.setPassword(env.getProperty("dbpassword"));
 		return dataSource;
 	}
+
+	@Bean
+    public NamedParameterJdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new NamedParameterJdbcTemplate(dataSource);
+    }
 
 	@Bean
     public DataSourceInitializer dataSourceInitializer(DataSource dataSource) {
