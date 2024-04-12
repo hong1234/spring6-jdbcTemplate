@@ -8,11 +8,13 @@
 		<version>3.2.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.hong.spring</groupId>
-	<artifactId>JdbcTemplate</artifactId>
+	<artifactId>SpringJdbcTemplateH</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JdbcTemplate</name>
+	<name>SpringJdbcTemplateH</name>
 	<description>Demo project for Spring Boot</description>
+	
 	<properties>
 		<!-- <spring.framework>6.1.0.RELEASE</spring.framework> -->
 		<java.version>17</java.version>

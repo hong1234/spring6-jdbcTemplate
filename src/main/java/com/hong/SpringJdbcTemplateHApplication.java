@@ -9,7 +9,7 @@ import com.hong.model.Person;
 import com.hong.spring.dao.PersonDAO;
 import com.hong.spring.service.PersonManager;
 
-public class MainRunner {
+public class SpringJdbcTemplateHApplication {
 	public static void main(String[] args) {
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
