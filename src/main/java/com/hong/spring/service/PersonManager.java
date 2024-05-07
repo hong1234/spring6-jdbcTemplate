@@ -38,7 +38,7 @@ public class PersonManager {
 		person.setAge(21);
 		person.setGender(Gender.valueOf("Male"));  // Male, Female, Third
 		person.setCreatedOn(ldt);
-		personDao.createPerson(person);
+		Person p1 = personDao.createPerson(person);
 
 		person = new Person();
 		person.setFirstName("Oksi");
@@ -46,12 +46,16 @@ public class PersonManager {
 		person.setAge(30);
 		person.setGender(Gender.Female);
 		person.setCreatedOn(ldt);
-		personDao.createPerson(person);
+		Person p2 = personDao.createPerson(person);
 
-		System.out.println("\nList of person is:");
-		for (Person p : personDao.getAllPersons()) {
-			System.out.println(p);
-		}
+		// System.out.println("\nList of person is:");
+		// for (Person p : personDao.getAllPersons()) {
+		// 	System.out.println(p);
+		// }
+		
+		System.out.println("\nPerson list#1:");
+		System.out.println(p1);
+		System.out.println(p2);
 
 		System.out.println("\nCreating person: ");
 		person = new Person();
@@ -72,7 +76,7 @@ public class PersonManager {
 	@Transactional
 	public void testTransaction() {
 
-		System.out.println("\nList of person is:");
+		System.out.println("\nPerson list#2:");
 		for (Person p : personDao.getAllPersons()) {
 			System.out.println(p);
 		}
@@ -89,7 +93,7 @@ public class PersonManager {
 		pperson.setLastName("CHANGED");
 		personDao.updatePerson(pperson);
 
-		System.out.println("\nList of person is:");
+		System.out.println("\nPerson list#3:");
 		for (Person p : personDao.getAllPersons()) {
 			System.out.println(p);
 		}

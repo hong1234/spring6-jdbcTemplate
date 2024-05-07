@@ -7,7 +7,8 @@ public interface PersonDAO {
 	Person getPersonById(Integer id);
 	List<Person> getAllPersons();
 	
-	boolean deletePerson(Person person);
+	// boolean createPerson(Person person);
+	Person createPerson(Person person);
 	boolean updatePerson(Person person);
-	boolean createPerson(Person person);
+	boolean deletePerson(Person person);
 }

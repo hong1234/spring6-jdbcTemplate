@@ -8,6 +8,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +52,18 @@ public class JdbcTemplateDAO implements PersonDAO {
 		return jdbcTemplate.queryForObject(SQL_FIND_PERSON, parameters, new PersonMapper());
 	}
 
-	public boolean createPerson(Person person) {
+	// public boolean createPerson(Person person) {
+	// 	SqlParameterSource parameters = new MapSqlParameterSource()
+	// 				.addValue("fname", person.getFirstName())
+	// 				.addValue("lname", person.getLastName())
+	// 				.addValue("age", person.getAge())
+	// 				// .addValue("gender", person.getGender().toString())
+	// 				.addValue("gender", person.getGender().name())
+	// 				.addValue("createdOn", person.getCreatedOn());
+	// 	return jdbcTemplate.update(SQL_INSERT_PERSON, parameters) > 0;
+	// }
+
+	public Person createPerson(Person person) {
 		SqlParameterSource parameters = new MapSqlParameterSource()
 					.addValue("fname", person.getFirstName())
 					.addValue("lname", person.getLastName())
@@ -57,7 +71,12 @@ public class JdbcTemplateDAO implements PersonDAO {
 					// .addValue("gender", person.getGender().toString())
 					.addValue("gender", person.getGender().name())
 					.addValue("createdOn", person.getCreatedOn());
-		return jdbcTemplate.update(SQL_INSERT_PERSON, parameters) > 0;
+
+		KeyHolder generatedKeyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(SQL_INSERT_PERSON, parameters, generatedKeyHolder);
+
+        Number key = generatedKeyHolder.getKey();
+        return getPersonById(key.intValue());
 	}
 
 	public boolean updatePerson(Person person) {
